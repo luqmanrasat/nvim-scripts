@@ -2,7 +2,7 @@
 
 # Prompt environment name
 echo "Enter env name:"
-read -pf envName
+read -rp "> " envName
 
 # Rename existing env
 mv ~/.config/nvim ~/.config/nvim-"${envName}"
