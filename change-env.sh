@@ -4,7 +4,8 @@
 DEFAULT_ENV=0 # set default env position
 
 # Add available env to list
-envList=($(ls ~/.config | grep nvim- | sed s/nvim-//g))
+# TODO: not the correct way -- SC2207 (warning): Prefer mapfile or read -a to split command output (or quote to avoid splitting).
+envList=($(cd ~/.config && find nvim-* -maxdepth 0 -type d -printf '%f ' | sed s/nvim-//g))
 
 # Prompt select environment
 selectedOption=${envList[${DEFAULT_ENV}]}
