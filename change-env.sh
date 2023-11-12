@@ -1,24 +1,26 @@
 #!/bin/bash
 
 # Set defaults
-ENV_LIST=("lazyvim" "road_to_pde") # add available env to this list
-DEFAULT_ENV=0                      # set default env position
+DEFAULT_ENV=0 # set default env position
+
+# Add available env to list
+envList=($(ls ~/.config | grep nvim- | sed s/nvim-//g))
 
 # Prompt select environment
-selectedOption=${ENV_LIST[${DEFAULT_ENV}]}
+selectedOption=${envList[${DEFAULT_ENV}]}
 echo "Enter environment number to use (default is ${DEFAULT_ENV}):
-$(for i in "${!ENV_LIST[@]}"; do
-	echo "$i: ${ENV_LIST[i]}"
+$(for i in "${!envList[@]}"; do
+	echo "$i: ${envList[i]}"
 done)"
 read -rp "> " selectedIndex
 
-if [ ! "${ENV_LIST[$selectedIndex]}" ]; then
+if [ ! "${envList[$selectedIndex]}" ]; then
 	echo "Invalid selection!"
 	exit
 fi
 
 if [ "$selectedIndex" != ${DEFAULT_ENV} ]; then
-	selectedOption="${ENV_LIST[$selectedIndex]}"
+	selectedOption="${envList[$selectedIndex]}"
 fi
 
 # Delete existing symlinks & create new symlinks
