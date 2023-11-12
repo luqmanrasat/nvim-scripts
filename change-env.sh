@@ -25,7 +25,7 @@ if [ "$selectedIndex" != ${DEFAULT_ENV} ]; then
 fi
 
 # Delete existing symlinks & create new symlinks
-rm -f ~/.config/nvim ~/.cache/nvim ~/.local/share/nvim ~/.local/state/nvim
+rm -rf ~/.config/nvim ~/.cache/nvim ~/.local/share/nvim ~/.local/state/nvim
 ln -s ~/.config/nvim-"$selectedOption" ~/.config/nvim
 ln -s ~/.cache/nvim-"$selectedOption" ~/.cache/nvim
 ln -s ~/.local/share/nvim-"$selectedOption" ~/.local/share/nvim

@@ -1,17 +1,17 @@
-!#/bin/bash
+#!/bin/bash
 
 # Prompt environment name
 echo "Enter env name:"
 read -pf envName
 
-# Rename existing config folders
+# Rename existing env
 mv ~/.config/nvim ~/.config/nvim-"${envName}"
 mv ~/.cache/nvim ~/.cache/nvim-"${envName}"
 mv ~/.local/share/nvim ~/.local/share/nvim-"${envName}"
 mv ~/.local/share/nvim ~/.local/share/nvim-"${envName}"
 
-# Delete existing symlinks & create new symlinks
-rm -f ~/.config/nvim ~/.cache/nvim ~/.local/share/nvim ~/.local/state/nvim
+# Delete existing env & create new symlinks
+rm -rf ~/.config/nvim ~/.cache/nvim ~/.local/share/nvim ~/.local/state/nvim
 ln -s ~/.config/nvim-"$envName" ~/.config/nvim
 ln -s ~/.cache/nvim-"$envName" ~/.cache/nvim
 ln -s ~/.local/share/nvim-"$envName" ~/.local/share/nvim
