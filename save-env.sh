@@ -8,7 +8,7 @@ read -rp "> " envName
 mv ~/.config/nvim ~/.config/nvim-"${envName}"
 mv ~/.cache/nvim ~/.cache/nvim-"${envName}"
 mv ~/.local/share/nvim ~/.local/share/nvim-"${envName}"
-mv ~/.local/share/nvim ~/.local/share/nvim-"${envName}"
+mv ~/.local/state/nvim ~/.local/state/nvim-"${envName}"
 
 # Delete existing env & create new symlinks
 rm -rf ~/.config/nvim ~/.cache/nvim ~/.local/share/nvim ~/.local/state/nvim
